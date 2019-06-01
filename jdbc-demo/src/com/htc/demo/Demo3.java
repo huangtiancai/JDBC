@@ -45,7 +45,8 @@ public class Demo3 {
 		 */
 		Class.forName("com.mysql.jdbc.Driver");
 //		DriverManager.getConnection(String url,String user,String password);
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","huangtc", "huangTC@123");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/mysql","huangtc", "huangTC@123");
+		//Connection con = DriverManager.getConnection("jdbc:mysql://149.129.77.73:3306/mysql","huangtc", "huangTC@123");
 		System.out.println("连接成功，获取连接对象："+con);
 
 		

@@ -40,8 +40,8 @@ public class Demo5 {
 		 * 	rs.getXxx(String) ,通过字段名称获得内容
 		 * 	rs.getXxx(Integer) ,通过字段索引号获得内容
 		 * 如:
-		 * 	rs.getInt("cid");		  获得指定名称
-		 * 	rs.getString("cname")    获得指定名称
+		 * 	rs.getInt("cid");		  获得整型数据(根据索引或字段获取)
+		 * 	rs.getString("cname")    获得字符串
 		 * 	rs.getDouble(1)	                           获得第二列
 		 * 
 		 */
@@ -59,44 +59,50 @@ public class Demo5 {
 			//cid  cname
 			// 1            家电
 			// 2            服饰
-			// 3            化妆品
-			
-			
-			
+			// 3            化妆品			
 			//getInt(int columnIndex)      int
 			//getInt(String columnLabel)   int
 			
-
-			//根据索引获取数据
+			//根据索引获取整型数据
 			
 			//获取第一列的数据
 			//int c1 = rs.getInt(1);
-			//System.out.println("c1:"+c1);
-			//c1:1
-			//c1:2
-			//c1:3
+			//System.out.println(c1);
+			//1
+			//2
+			//3
 			//第二列数据为String类型，getInt返回的值为int类型，所以获取不到第二列的数据
 			//int c2 = rs.getInt(2); 错误
 
-			//根据索引获取数据
-			int c2 = rs.getInt("cid");
-			System.out.println("c2:"+c2);
+			//根据字段获取整型数据
+			//int c3 = rs.getInt("cid");
+			//System.out.println(c3);
+			//同样用的getInt获取不了cname字段值
+					
 			
-			
-			
-			
+			//根据索引获取字符串
+			//获取第一列
 			//String s1 = rs.getString(2);
-			//System.out.println("s1:"+s1);
-			//s1:家电
-			//s1:服饰
-			//s1:化妆品
+			//System.out.println(s1);
+			//家电
+			//服饰
+			//化妆品
+			//获取第二列(返回的整型可当作字符串)
+			//String s2 = rs.getString(1);
+			//System.out.println(s2);
 			
-			////获取第二列
-			//String s2 = rs.getString("cname");
-			//System.out.println("s2:"+s2);
-			//s2:家电
-			//s2:服饰
-			//s2:化妆品
+			//根据索引获取字符串
+			//获取cname字段
+			//String s3 = rs.getString("cname");
+			//System.out.println(s3);
+			//家电
+			//服饰
+			//化妆品
+			//获取cid字段
+			String s4 = rs.getString("cid");
+			System.out.println(s4);
+			
+			
 			
 			
 			
