@@ -1,0 +1,13 @@
+JDBC（Java Data Base Connectivity-java数据库连接）
+1.JDBC是一种用于执行SQL语句的Java API
+2.JDBC是Java访问数据库的标准规范，它由一组用Java语言编写的接口和类组成，而生产厂商提供规范的实现类称为驱动，
+     每个数据库厂商都需要提供自己的驱动，用来连接自己公司的数据库，也就是说驱动一般都由数据库生成厂商提供
+     
+3.JDBC是接口，驱动是接口的实现(实现类)，没有驱动将无法完成数据库连接，从而不能操作数据库！
+  JDBC规范定义驱动接口：java.sql.Driver，
+  MySQl驱动包提供了实现类：com.mysql.jdbc.Driver（驱动类）
+
+4.JDBC需要连接驱动：mysql的驱动mysql-connector-java-5.1.37-bin.jar
+
+
+
