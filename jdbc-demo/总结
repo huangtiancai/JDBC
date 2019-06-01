@@ -10,4 +10,19 @@ JDBC（Java Data Base Connectivity-java数据库连接）
 4.JDBC需要连接驱动：mysql的驱动mysql-connector-java-5.1.37-bin.jar
 
 
-
+//2.注册驱动
+				Class.forName("com.mysql.jdbc.Driver");
+				//junit测试
+				System.out.println("数据库驱动加载成功！");
+				//3.建立与数据库的连接
+				//con = DriverManager.getConnection(url, user, password);
+//				url: jdbc:mysql://localhost:3306/数据库名
+				//JDBC规定url的格式由三部分组成，每个部分中间使用冒号分隔
+				//第一部分是jdbc，这是固定的；
+				//第二部分是数据库类型名称，那么连接mysql数据库，第二部分当然是mysql了
+				//第三部分是由数据库厂商规定的,mysql的第三部分分别由数据库服务器的IP地址（localhost）、端口号（3306），以及database名称组成
+				
+//				user(用户名):root
+//				password(密码)：huangTC@123
+				
+				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root","huangTC@123");
