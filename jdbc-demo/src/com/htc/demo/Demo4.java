@@ -12,33 +12,33 @@ import org.junit.Test;
 
 /**  
 * @ClassName Demo4
-* @Description:JDBC APIÏê½â--»ñµÃÓï¾äÖ´ĞĞÕß
+* @Description:JDBC APIè¯¦è§£--è·å¾—è¯­å¥æ‰§è¡Œè€…
 * @author htc  
-* @date 2019Äê6ÔÂ1ÈÕÏÂÎç4:04:24 
+* @date 2019å¹´6æœˆ1æ—¥ä¸‹åˆ4:04:24 
 */
 public class Demo4 {
 	/**
 	 * Title: demo1
-	 * Description: ²âÊÔ»ñµÃÓï¾äÖ´ĞĞÕß
+	 * Description: æµ‹è¯•è·å¾—è¯­å¥æ‰§è¡Œè€…
 	 * @throws Exception 
 	 */
 	@Test
 	public void demo1() throws Exception{
 		/**
-		 * »ñµÃÓï¾äÖ´ĞĞÆ½Ì¨
-		 * Í¨¹ıConnection¾Í¿ÉÒÔ»ñµÃÕë¶Ô²»Í¬Êı¾İ¿âsqlÓï¾äµÄÖ´ĞĞ¶ÔÏó£¬³£ÓÃ  createStatement()
-		 * Í¨¹ıStatement¶ÔÏó¿ÉÒÔÖ´ĞĞÈÎÒâµÄSQLÓï¾ä
+		 * è·å¾—è¯­å¥æ‰§è¡Œå¹³å°
+		 * é€šè¿‡Connectionå°±å¯ä»¥è·å¾—é’ˆå¯¹ä¸åŒæ•°æ®åº“sqlè¯­å¥çš„æ‰§è¡Œå¯¹è±¡ï¼Œå¸¸ç”¨  createStatement()
+		 * é€šè¿‡Statementå¯¹è±¡å¯ä»¥æ‰§è¡Œä»»æ„çš„SQLè¯­å¥
 		 * int executeUpdate(String sql);
 			 * -st.executeUpdate(sql) 
-			 * -Ö´ĞĞDMLÓï¾ä(ÔöÉ¾¸Ä insert¡¢delete¡¢update) £¬·µ»ØÎªÕûĞÍ£¬±íÊ¾Ó°ÏìĞĞÊı 
+			 * -æ‰§è¡ŒDMLè¯­å¥(å¢åˆ æ”¹ insertã€deleteã€update) ï¼Œè¿”å›ä¸ºæ•´å‹ï¼Œè¡¨ç¤ºå½±å“è¡Œæ•° 
 		 * ResultSet executeQuery(String sql); 
 			 * -st.executeQuery(sql)  
-			 * -Ö´ĞĞDQLÓï¾ä(²éÑ¯ select) £¬·µ»ØResultSet½á¹û¼¯¶ÔÏó(²éÑ¯ËùÓĞÊı¾İ)
+			 * -æ‰§è¡ŒDQLè¯­å¥(æŸ¥è¯¢ select) ï¼Œè¿”å›ResultSetç»“æœé›†å¯¹è±¡(æŸ¥è¯¢æ‰€æœ‰æ•°æ®)
 		 * Boolean execute(String sql);
 			 * -st.execute(sql)
-			 * -Ö´ĞĞÈÎÒâsqlÓï¾ä¡£·µ»ØÎªboolean
-				 * true£¬±íÊ¾Ö´ĞĞDQLÓï¾ä£¬ĞèÒªÍ¨¹ıts.getResultSet() »ñµÃ²éÑ¯½á¹û
-				 * false£¬±íÊ¾DMLÓï¾ä£¬ĞèÒªÍ¨¹ı ts.getUpdateCount() »ñµÃÓ°ÏìĞĞÊı¡£
+			 * -æ‰§è¡Œä»»æ„sqlè¯­å¥ã€‚è¿”å›ä¸ºboolean
+				 * trueï¼Œè¡¨ç¤ºæ‰§è¡ŒDQLè¯­å¥ï¼Œéœ€è¦é€šè¿‡ts.getResultSet() è·å¾—æŸ¥è¯¢ç»“æœ
+				 * falseï¼Œè¡¨ç¤ºDMLè¯­å¥ï¼Œéœ€è¦é€šè¿‡ ts.getUpdateCount() è·å¾—å½±å“è¡Œæ•°ã€‚
 		 */
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","huangtc", "huangTC@123");

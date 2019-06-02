@@ -13,14 +13,14 @@ import org.junit.Test;
 
 /**  
 * @ClassName Demo6
-* @Description:JDBC APIÏê½â--ÊÍ·Å×ÊÔ´
+* @Description:JDBC APIè¯¦è§£--é‡Šæ”¾èµ„æº
 * @author htc  
-* @date 2019Äê6ÔÂ1ÈÕ ÏÂÎç10:59:42
+* @date 2019å¹´6æœˆ1æ—¥ ä¸‹åˆ10:59:42
 */
 public class Demo6 {
 	/**
 	 * Title: demo1
-	 * Description:²âÊÔÊÍ·Å×ÊÔ´
+	 * Description:æµ‹è¯•é‡Šæ”¾èµ„æº
 	 */
 	@Test
 	public void demo1(){
@@ -40,8 +40,8 @@ public class Demo6 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
-			//¹Ø±ÕµÄË³ĞòÊÇÏÈµÃµ½µÄºó¹Ø±Õ£¬ºóµÃµ½µÄÏÈ¹Ø±Õ¡£
-			//¹Ø±Õ½á¹û¼¯
+			//å…³é—­çš„é¡ºåºæ˜¯å…ˆå¾—åˆ°çš„åå…³é—­ï¼Œåå¾—åˆ°çš„å…ˆå…³é—­ã€‚
+			//å…³é—­ç»“æœé›†
 			if(rs!=null){
 				try {
 					rs.close();
@@ -50,7 +50,7 @@ public class Demo6 {
 					e.printStackTrace();
 				}
 			}
-			//¹Ø±ÕÖ´ĞĞÆ½Ì¨
+			//å…³é—­æ‰§è¡Œå¹³å°
 			if(st!=null){
 				try {
 					st.close();
@@ -59,7 +59,7 @@ public class Demo6 {
 					e.printStackTrace();
 				}
 			}
-			//¹Ø±ÕÁ¬½Ó
+			//å…³é—­è¿æ¥
 			if(conn!=null){
 				try {
 					conn.close();

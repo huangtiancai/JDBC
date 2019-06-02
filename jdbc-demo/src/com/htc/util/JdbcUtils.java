@@ -10,21 +10,21 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * ¡°»ñµÃÊı¾İ¿âÁ¬½Ó¡±²Ù×÷£¬½«ÔÚÒÔºóµÄÔöÉ¾¸Ä²éËùÓĞ¹¦ÄÜÖĞ¶¼´æÔÚ£¬¿ÉÒÔ·â×°¹¤¾ßÀàJDBCUtils¡£Ìá¹©»ñÈ¡Á¬½Ó¶ÔÏóµÄ·½·¨£¬´Ó¶ø´ïµ½´úÂëµÄÖØ¸´ÀûÓÃ¡£
+ * â€œè·å¾—æ•°æ®åº“è¿æ¥â€æ“ä½œï¼Œå°†åœ¨ä»¥åçš„å¢åˆ æ”¹æŸ¥æ‰€æœ‰åŠŸèƒ½ä¸­éƒ½å­˜åœ¨ï¼Œå¯ä»¥å°è£…å·¥å…·ç±»JDBCUtilsã€‚æä¾›è·å–è¿æ¥å¯¹è±¡çš„æ–¹æ³•ï¼Œä»è€Œè¾¾åˆ°ä»£ç çš„é‡å¤åˆ©ç”¨ã€‚
  */
 
 /**  
 * @ClassName JdbcUtils
-* @Description:JDBC¹¤¾ßÀà	
+* @Description:JDBCå·¥å…·ç±»	
 * @author htc  
-* @date 2019Äê6ÔÂ1ÈÕ ÏÂÎç11:20:11
+* @date 2019å¹´6æœˆ1æ—¥ ä¸‹åˆ11:20:11
 */
 public class JdbcUtils {
 	private static String driver = "com.mysql.jdbc.Driver";
 	private static String url = "jdbc:mysql://localhost:3306/mydb";
 	private static String user = "huangtc";
 	private static String password = "huangTC@123";
-	//Class.forName±ØĞëÔÚ·ÅÔÚ¾²Ì¬´úÂë¿é»òÕß·½·¨ÖĞ
+	//Class.forNameå¿…é¡»åœ¨æ”¾åœ¨é™æ€ä»£ç å—æˆ–è€…æ–¹æ³•ä¸­
 	static{
 		try {
 			Class.forName(driver);
@@ -35,18 +35,18 @@ public class JdbcUtils {
 	}
 	/**
 	 * function: getConnection
-	 * Description:»ñµÃÁ¬½Ó
+	 * Description:è·å¾—è¿æ¥
 	 * return:Connection
 	 * @throws SQLException 
 	 */
 	public static Connection getConnection() throws SQLException{
-		//»ñµÃÁ´½Ó
+		//è·å¾—é“¾æ¥
 		Connection conn = DriverManager.getConnection(url, user, password);
 		return conn;
 	} 
 	/**
 	 * function: closeResource
-	 * Description:ÊÍ·Å×ÊÔ´
+	 * Description:é‡Šæ”¾èµ„æº
 	 * return:void
 	 * @param conn
 	 * @param st

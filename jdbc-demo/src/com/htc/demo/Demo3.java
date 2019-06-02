@@ -10,44 +10,44 @@ import org.junit.Test;
 
 /**  
 * @ClassName Demo3
-* @Description:JDBC APIÏê½â--»ñÈ¡Á¬½Ó
+* @Description:JDBC APIè¯¦è§£--è·å–è¿æ¥
 * @author htc  
-* @date 2019Äê6ÔÂ1ÈÕÏÂÎç3:45:08 
+* @date 2019å¹´6æœˆ1æ—¥ä¸‹åˆ3:45:08 
 */
 public class Demo3 {
 	/**
 	 * 
 	 * Title: demo1
-	 * Description:²âÊÔ»ñÈ¡Á¬½Ó
+	 * Description:æµ‹è¯•è·å–è¿æ¥
 	 * @throws Exception 
 	 */
 	@Test
 	public void demo1() throws Exception{
 		/**
-		 * »ñµÃÁ¬½Ó
-		 * DBCÌá¹©¹¤¾ßÀà DriverManager(Çı¶¯¹ÜÀíÆ÷)
-		 * getConnection() Í¨¹ıÉèÖÃ¾ßÌå²ÎÊıÏò²»Í¬µÄÊı¾İ¿â´´½¨ĞÂµÄÁ¬½Ó
+		 * è·å¾—è¿æ¥
+		 * DBCæä¾›å·¥å…·ç±» DriverManager(é©±åŠ¨ç®¡ç†å™¨)
+		 * getConnection() é€šè¿‡è®¾ç½®å…·ä½“å‚æ•°å‘ä¸åŒçš„æ•°æ®åº“åˆ›å»ºæ–°çš„è¿æ¥
 		 * 
 		 * DriverManager.getConnection(url, user, password);
-		 * ²ÎÊı1 url :Êı¾İ·ÃÎÊÂ·¾¶
-		 * ²ÎÊı2 user: Êı¾İ¿âÓÃ»§Ãû
-		 * ²ÎÊı3 password:Êı¾İ¿âÃÜÂë
-		 *   url·ÃÎÊÂ·¾¶:
-		 *   ¸ñÊ½  jdbc:mysql://ipµØÖ·:¶Ë¿ÚºÅ/Êı¾İ¿âÃû³Æ
-		 *   Èç£º  jdbc:myql://localhost:3306/mydb  
+		 * å‚æ•°1 url :æ•°æ®è®¿é—®è·¯å¾„
+		 * å‚æ•°2 user: æ•°æ®åº“ç”¨æˆ·å
+		 * å‚æ•°3 password:æ•°æ®åº“å¯†ç 
+		 *   urlè®¿é—®è·¯å¾„:
+		 *   æ ¼å¼  jdbc:mysql://ipåœ°å€:ç«¯å£å·/æ•°æ®åº“åç§°
+		 *   å¦‚ï¼š  jdbc:myql://localhost:3306/mydb  
 		 *   	jdbc:mysql://149.129.77.73:3306/mysql
 		 *      
-		 *      jdbc¹Ì¶¨
-		 *      mysql ±íÊ¾mysqlÊı¾İ¿â£¬Ò»°ãÇé¿ö»á¸ù¾İÊı¾İ¿â²»Í¬¶ø²»Í¬
-		 *      localhost:3306 ±íÊ¾Êı¾İ¿â¾ßÌåµØÖ·£¬ÎªÄ¬ÈÏÖµ
-		 *      mydb:±íÊ¾Êı¾İÃû³Æ 
+		 *      jdbcå›ºå®š
+		 *      mysql è¡¨ç¤ºmysqlæ•°æ®åº“ï¼Œä¸€èˆ¬æƒ…å†µä¼šæ ¹æ®æ•°æ®åº“ä¸åŒè€Œä¸åŒ
+		 *      localhost:3306 è¡¨ç¤ºæ•°æ®åº“å…·ä½“åœ°å€ï¼Œä¸ºé»˜è®¤å€¼
+		 *      mydb:è¡¨ç¤ºæ•°æ®åç§° 
 		 * 
 		 */
 		Class.forName("com.mysql.jdbc.Driver");
 //		DriverManager.getConnection(String url,String user,String password);
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/mysql","huangtc", "huangTC@123");
 		//Connection con = DriverManager.getConnection("jdbc:mysql://149.129.77.73:3306/mysql","huangtc", "huangTC@123");
-		System.out.println("Á¬½Ó³É¹¦£¬»ñÈ¡Á¬½Ó¶ÔÏó£º"+con);
+		System.out.println("è¿æ¥æˆåŠŸï¼Œè·å–è¿æ¥å¯¹è±¡ï¼š"+con);
 
 		
 	}

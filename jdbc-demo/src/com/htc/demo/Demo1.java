@@ -11,74 +11,74 @@ import org.junit.Test;
 
 
 /**
- * JDBCÁ¬½ÓÊı¾İ¿â²½Öè£º
- * 1.Ìí¼Ójar°ü  build pathÏÂ
- * 2.¼ÓÔØÇı¶¯
- * 3.»ñÈ¡Á¬½Ó¶ÔÏó
- * 4.»ñÈ¡´¦ÀíÆ÷¶ÔÏó£ºµÚÒ»ÖÖ£ºStatement st = con.createStatement();
- * 5.Ö´ĞĞsqlÓï¾ä		
- * 		executeUpdate(sql):Ö´ĞĞDMLÓï¾ä£¨insert/update/delete£©£º·µ»ØÎªÕûĞÎ£¬±íÊ¾Ó°ÏìĞĞÊı
- * 		executeQuery(sql):Ö´ĞĞDQLÓï¾ä  :·µ»ØResultSet½á¹û¼¯¶ÔÏó(²éÑ¯ËùÓĞÊı¾İ)
- * 6.´¦Àí·µ»ØµÄ½á¹û
- * 7.¹Ø±ÕÏà¹Ø×ÊÔ´Connection,Statement,ResultSetµÈ
+ * JDBCè¿æ¥æ•°æ®åº“æ­¥éª¤ï¼š
+ * 1.æ·»åŠ jaråŒ…  build pathä¸‹
+ * 2.åŠ è½½é©±åŠ¨
+ * 3.è·å–è¿æ¥å¯¹è±¡
+ * 4.è·å–å¤„ç†å™¨å¯¹è±¡ï¼šç¬¬ä¸€ç§ï¼šStatement st = con.createStatement();
+ * 5.æ‰§è¡Œsqlè¯­å¥		
+ * 		executeUpdate(sql):æ‰§è¡ŒDMLè¯­å¥ï¼ˆinsert/update/deleteï¼‰ï¼šè¿”å›ä¸ºæ•´å½¢ï¼Œè¡¨ç¤ºå½±å“è¡Œæ•°
+ * 		executeQuery(sql):æ‰§è¡ŒDQLè¯­å¥  :è¿”å›ResultSetç»“æœé›†å¯¹è±¡(æŸ¥è¯¢æ‰€æœ‰æ•°æ®)
+ * 6.å¤„ç†è¿”å›çš„ç»“æœ
+ * 7.å…³é—­ç›¸å…³èµ„æºConnection,Statement,ResultSetç­‰
  */
 	  
 	/**    
 	* @ClassName Demo1
 	* @Description:
 	* @author htc  
-	* @date 2019Äê6ÔÂ1ÈÕÉÏÎç11:01:46
+	* @date 2019å¹´6æœˆ1æ—¥ä¸Šåˆ11:01:46
 	 */
 	public class Demo1 {
 		/**
 		 * Title: demo1
-		 * Description:ÁË½âJDBC¿ª·¢²½Öè
+		 * Description:äº†è§£JDBCå¼€å‘æ­¥éª¤
 		 * @throws Exception 
 		 */
 		@Test
 		public void demo1() throws Exception{
-			//²éÑ¯ËùÓĞµÄ·ÖÀàĞÅÏ¢
-		    //×¢Òâ£ºÊ¹ÓÃJDBC¹æ·¶£¬²ÉÓÃ¶¼ÊÇ java.sql°üÏÂµÄÄÚÈİ
-			//×¢Òâ£ºcom.mysql.jdbc.Connection ÊÇmysql×Ô¼ºµÄ½Ó¿Ú
-			//java.sql.Connection ÕâÊÇÒ»¸ö¹«¹²µÄ½Ó¿Ú°üÀ¨¶ÔmysqlµÄÖ§³Öoracle,sqlserver ¶ÔºÜ¶àÊı¾İ¿âÒ»¸ö¹«¹²µÄAPI!
+			//æŸ¥è¯¢æ‰€æœ‰çš„åˆ†ç±»ä¿¡æ¯
+		    //æ³¨æ„ï¼šä½¿ç”¨JDBCè§„èŒƒï¼Œé‡‡ç”¨éƒ½æ˜¯ java.sqlåŒ…ä¸‹çš„å†…å®¹
+			//æ³¨æ„ï¼šcom.mysql.jdbc.Connection æ˜¯mysqlè‡ªå·±çš„æ¥å£
+			//java.sql.Connection è¿™æ˜¯ä¸€ä¸ªå…¬å…±çš„æ¥å£åŒ…æ‹¬å¯¹mysqlçš„æ”¯æŒoracle,sqlserver å¯¹å¾ˆå¤šæ•°æ®åº“ä¸€ä¸ªå…¬å…±çš„API!
 			Connection con = null;
 			Statement st = null;
 			
-			//2.×¢²áÇı¶¯
+			//2.æ³¨å†Œé©±åŠ¨
 				Class.forName("com.mysql.jdbc.Driver");
-				System.out.println("Êı¾İ¿âÇı¶¯¼ÓÔØ³É¹¦!");
-				//junit²âÊÔ
-				//3.½¨Á¢ÓëÊı¾İ¿âµÄÁ¬½Ó
+				System.out.println("æ•°æ®åº“é©±åŠ¨åŠ è½½æˆåŠŸ!");
+				//junitæµ‹è¯•
+				//3.å»ºç«‹ä¸æ•°æ®åº“çš„è¿æ¥
 				//con = DriverManager.getConnection(url, user, password);
 				
-//				url: jdbc:mysql://localhost:3306/Êı¾İ¿âÃû
-				//JDBC¹æ¶¨urlµÄ¸ñÊ½ÓÉÈı²¿·Ö×é³É£¬Ã¿¸ö²¿·ÖÖĞ¼äÊ¹ÓÃÃ°ºÅ·Ö¸ô
-				//µÚÒ»²¿·ÖÊÇjdbc£¬ÕâÊÇ¹Ì¶¨µÄ
-				//µÚ¶ş²¿·ÖÊÇÊı¾İ¿âÀàĞÍÃû³Æ£¬ÄÇÃ´Á¬½ÓmysqlÊı¾İ¿â£¬µÚ¶ş²¿·Öµ±È»ÊÇmysqlÁË
-				//µÚÈı²¿·ÖÊÇÓÉÊı¾İ¿â³§ÉÌ¹æ¶¨µÄ,mysqlµÄµÚÈı²¿·Ö·Ö±ğÓÉÊı¾İ¿â·şÎñÆ÷µÄIPµØÖ·£¨localhost£©¡¢¶Ë¿ÚºÅ£¨3306£©£¬ÒÔ¼°databaseÃû³Æ×é³É
+//				url: jdbc:mysql://localhost:3306/æ•°æ®åº“å
+				//JDBCè§„å®šurlçš„æ ¼å¼ç”±ä¸‰éƒ¨åˆ†ç»„æˆï¼Œæ¯ä¸ªéƒ¨åˆ†ä¸­é—´ä½¿ç”¨å†’å·åˆ†éš”
+				//ç¬¬ä¸€éƒ¨åˆ†æ˜¯jdbcï¼Œè¿™æ˜¯å›ºå®šçš„
+				//ç¬¬äºŒéƒ¨åˆ†æ˜¯æ•°æ®åº“ç±»å‹åç§°ï¼Œé‚£ä¹ˆè¿æ¥mysqlæ•°æ®åº“ï¼Œç¬¬äºŒéƒ¨åˆ†å½“ç„¶æ˜¯mysqläº†
+				//ç¬¬ä¸‰éƒ¨åˆ†æ˜¯ç”±æ•°æ®åº“å‚å•†è§„å®šçš„,mysqlçš„ç¬¬ä¸‰éƒ¨åˆ†åˆ†åˆ«ç”±æ•°æ®åº“æœåŠ¡å™¨çš„IPåœ°å€ï¼ˆlocalhostï¼‰ã€ç«¯å£å·ï¼ˆ3306ï¼‰ï¼Œä»¥åŠdatabaseåç§°ç»„æˆ
 				
-//				user(ÓÃ»§Ãû):root
-//				password(ÃÜÂë)£ºhuangTC@123
-				//²âÊÔ°¢ÀïÔÆmysqlÊı¾İ¿âÁ¬½ÓÊÇ·ñ³É¹¦
+//				user(ç”¨æˆ·å):root
+//				password(å¯†ç )ï¼šhuangTC@123
+				//æµ‹è¯•é˜¿é‡Œäº‘mysqlæ•°æ®åº“è¿æ¥æ˜¯å¦æˆåŠŸ
 //				con = DriverManager.getConnection("jdbc:mysql://149.129.77.73:3306/mysql", "huangtc","huangTC@123");
 				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "huangtc","huangTC@123");
-				System.out.println("Á¬½Ó³É¹¦£¬»ñÈ¡Á¬½Ó¶ÔÏó£º"+con);
+				System.out.println("è¿æ¥æˆåŠŸï¼Œè·å–è¿æ¥å¯¹è±¡ï¼š"+con);
 				
-				//4.»ñµÃÓï¾äÖ´ĞĞÆ½Ì¨£¨»ñµÃ´¦ÀíÆ÷¶ÔÏó£¨´´½¨Statement£©£©
+				//4.è·å¾—è¯­å¥æ‰§è¡Œå¹³å°ï¼ˆè·å¾—å¤„ç†å™¨å¯¹è±¡ï¼ˆåˆ›å»ºStatementï¼‰ï¼‰
 				st = con.createStatement();
-				System.out.println("»ñµÃµÄStatement¶ÔÏó£º"+st);
+				System.out.println("è·å¾—çš„Statementå¯¹è±¡ï¼š"+st);
 				
-				//5.Ö´ĞĞsqlÓï¾ä
+				//5.æ‰§è¡Œsqlè¯­å¥
 				String sql = "select * from category";
 				ResultSet rs = st.executeQuery(sql);
 				System.out.println("rs:"+rs);
-				//Boolean rs.next()  //Ö¸ÏòµÚÒ»ĞĞ
+				//Boolean rs.next()  //æŒ‡å‘ç¬¬ä¸€è¡Œ
 				//System.out.println("rs.next():"+rs.next());
 				
-				//6.´¦Àí½á¹û¼¯
-				//×¢Òâ£ºÔÚÖ´ĞĞµÚÒ»´Îrs.next()Ö®Ç°²»ÄÜÖ´ĞĞrs.next()£¬ÈçÉÏÃæ´òÓ¡µÄÓï¾äÖĞ³öÏÖÁËrs.next()£¬µ¼ÖÂÔÙÖ´ĞĞrs.next()Ê±£¬µÚÒ»ĞĞ»ñÈ¡²»µ½
+				//6.å¤„ç†ç»“æœé›†
+				//æ³¨æ„ï¼šåœ¨æ‰§è¡Œç¬¬ä¸€æ¬¡rs.next()ä¹‹å‰ä¸èƒ½æ‰§è¡Œrs.next()ï¼Œå¦‚ä¸Šé¢æ‰“å°çš„è¯­å¥ä¸­å‡ºç°äº†rs.next()ï¼Œå¯¼è‡´å†æ‰§è¡Œrs.next()æ—¶ï¼Œç¬¬ä¸€è¡Œè·å–ä¸åˆ°
 				while(rs.next()){
-					//»ñµÃÒ»ĞĞÊı¾İ 
+					//è·å¾—ä¸€è¡Œæ•°æ® 
 					Integer cid = rs.getInt("cid");
 					String cname = rs.getString("cname");
 					System.out.println(cid+","+cname);

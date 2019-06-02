@@ -1,28 +1,10 @@
-JDBC£¨Java Data Base Connectivity-javaÊý¾Ý¿âÁ¬½Ó£©
-1.JDBCÊÇÒ»ÖÖÓÃÓÚÖ´ÐÐSQLÓï¾äµÄJava API
-2.JDBCÊÇJava·ÃÎÊÊý¾Ý¿âµÄ±ê×¼¹æ·¶£¬ËüÓÉÒ»×éÓÃJavaÓïÑÔ±àÐ´µÄ½Ó¿ÚºÍÀà×é³É£¬¶øÉú²ú³§ÉÌÌá¹©¹æ·¶µÄÊµÏÖÀà³ÆÎªÇý¶¯£¬
-     Ã¿¸öÊý¾Ý¿â³§ÉÌ¶¼ÐèÒªÌá¹©×Ô¼ºµÄÇý¶¯£¬ÓÃÀ´Á¬½Ó×Ô¼º¹«Ë¾µÄÊý¾Ý¿â£¬Ò²¾ÍÊÇËµÇý¶¯Ò»°ã¶¼ÓÉÊý¾Ý¿âÉú³É³§ÉÌÌá¹©
+JDBCï¼ˆJava Data Base Connectivity-javaæ•°æ®åº“è¿žæŽ¥ï¼‰
+1.JDBCæ˜¯ä¸€ç§ç”¨äºŽæ‰§è¡ŒSQLè¯­å¥çš„Java API
+2.JDBCæ˜¯Javaè®¿é—®æ•°æ®åº“çš„æ ‡å‡†è§„èŒƒï¼Œå®ƒç”±ä¸€ç»„ç”¨Javaè¯­è¨€ç¼–å†™çš„æŽ¥å£å’Œç±»ç»„æˆï¼Œè€Œç”Ÿäº§åŽ‚å•†æä¾›è§„èŒƒçš„å®žçŽ°ç±»ç§°ä¸ºé©±åŠ¨ï¼Œ
+     æ¯ä¸ªæ•°æ®åº“åŽ‚å•†éƒ½éœ€è¦æä¾›è‡ªå·±çš„é©±åŠ¨ï¼Œç”¨æ¥è¿žæŽ¥è‡ªå·±å…¬å¸çš„æ•°æ®åº“ï¼Œä¹Ÿå°±æ˜¯è¯´é©±åŠ¨ä¸€èˆ¬éƒ½ç”±æ•°æ®åº“ç”ŸæˆåŽ‚å•†æä¾›
      
-3.JDBCÊÇ½Ó¿Ú£¬Çý¶¯ÊÇ½Ó¿ÚµÄÊµÏÖ(ÊµÏÖÀà)£¬Ã»ÓÐÇý¶¯½«ÎÞ·¨Íê³ÉÊý¾Ý¿âÁ¬½Ó£¬´Ó¶ø²»ÄÜ²Ù×÷Êý¾Ý¿â£¡
-  JDBC¹æ·¶¶¨ÒåÇý¶¯½Ó¿Ú£ºjava.sql.Driver£¬
-  MySQlÇý¶¯°üÌá¹©ÁËÊµÏÖÀà£ºcom.mysql.jdbc.Driver£¨Çý¶¯Àà£©
+3.JDBCæ˜¯æŽ¥å£ï¼Œé©±åŠ¨æ˜¯æŽ¥å£çš„å®žçŽ°(å®žçŽ°ç±»)ï¼Œæ²¡æœ‰é©±åŠ¨å°†æ— æ³•å®Œæˆæ•°æ®åº“è¿žæŽ¥ï¼Œä»Žè€Œä¸èƒ½æ“ä½œæ•°æ®åº“ï¼
+  JDBCè§„èŒƒå®šä¹‰é©±åŠ¨æŽ¥å£ï¼šjava.sql.Driverï¼Œ
+  MySQlé©±åŠ¨åŒ…æä¾›äº†å®žçŽ°ç±»ï¼šcom.mysql.jdbc.Driverï¼ˆé©±åŠ¨ç±»ï¼‰
 
-4.JDBCÐèÒªÁ¬½ÓÇý¶¯£ºmysqlµÄÇý¶¯mysql-connector-java-5.1.37-bin.jar
-
-
-//2.×¢²áÇý¶¯
-				Class.forName("com.mysql.jdbc.Driver");
-				//junit²âÊÔ
-				System.out.println("Êý¾Ý¿âÇý¶¯¼ÓÔØ³É¹¦£¡");
-				//3.½¨Á¢ÓëÊý¾Ý¿âµÄÁ¬½Ó
-				//con = DriverManager.getConnection(url, user, password);
-//				url: jdbc:mysql://localhost:3306/Êý¾Ý¿âÃû
-				//JDBC¹æ¶¨urlµÄ¸ñÊ½ÓÉÈý²¿·Ö×é³É£¬Ã¿¸ö²¿·ÖÖÐ¼äÊ¹ÓÃÃ°ºÅ·Ö¸ô
-				//µÚÒ»²¿·ÖÊÇjdbc£¬ÕâÊÇ¹Ì¶¨µÄ£»
-				//µÚ¶þ²¿·ÖÊÇÊý¾Ý¿âÀàÐÍÃû³Æ£¬ÄÇÃ´Á¬½ÓmysqlÊý¾Ý¿â£¬µÚ¶þ²¿·Öµ±È»ÊÇmysqlÁË
-				//µÚÈý²¿·ÖÊÇÓÉÊý¾Ý¿â³§ÉÌ¹æ¶¨µÄ,mysqlµÄµÚÈý²¿·Ö·Ö±ðÓÉÊý¾Ý¿â·þÎñÆ÷µÄIPµØÖ·£¨localhost£©¡¢¶Ë¿ÚºÅ£¨3306£©£¬ÒÔ¼°databaseÃû³Æ×é³É
-				
-//				user(ÓÃ»§Ãû):root
-//				password(ÃÜÂë)£ºhuangTC@123
-				
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root","huangTC@123");
+4.JDBCéœ€è¦è¿žæŽ¥é©±åŠ¨ï¼šmysqlçš„é©±åŠ¨mysql-connector-java-5.1.37-bin.jar

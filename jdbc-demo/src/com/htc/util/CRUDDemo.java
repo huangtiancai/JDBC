@@ -12,14 +12,14 @@ import org.junit.Test;
 
 /**  
 * @ClassName CRUDDemo
-* @Description:JDBCÔöÉ¾¸Ä²é²Ù×÷
+* @Description:JDBCå¢åˆ æ”¹æŸ¥æ“ä½œ
 * @author htc  
-* @date 2019Äê6ÔÂ1ÈÕ ÏÂÎç11:44:09
+* @date 2019å¹´6æœˆ1æ—¥ ä¸‹åˆ11:44:09
 */
 public class CRUDDemo {
 	/**
 	 * function: demo1
-	 * Description:»ñµÃÁ¬½Ó 
+	 * Description:è·å¾—è¿æ¥ 
 	 * return:void
 	 */
 	@Test
@@ -29,19 +29,19 @@ public class CRUDDemo {
 		ResultSet rs =null;
 		
 		try {
-			//»ñµÃÁ¬½Ó
+			//è·å¾—è¿æ¥
 			conn = JdbcUtils.getConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
-			//ÊÍ·Å×ÊÔ´
+			//é‡Šæ”¾èµ„æº
 			JdbcUtils.closeResource(conn, st, rs);
 		}
 	}
 	/**
 	 * function: demo2
-	 * Description:ĞÂÔö²Ù×÷
+	 * Description:æ–°å¢æ“ä½œ
 	 * return:void
 	 */
 	@Test
@@ -51,13 +51,13 @@ public class CRUDDemo {
 		ResultSet rs =null;
 		
 		try {
-			//1.»ñµÃÁ¬½Ó
+			//1.è·å¾—è¿æ¥
 			conn = JdbcUtils.getConnection();
-			//2.»ñµÃÓï¾äÖ´ĞĞÕß
+			//2.è·å¾—è¯­å¥æ‰§è¡Œè€…
 			st = conn.createStatement();
-			//3.Ö´ĞĞsqlÓï¾ä
-			int r = st.executeUpdate("insert into category (cname) values ('²âÊÔ')");
-			//4.´òÓ¡½á¹û
+			//3.æ‰§è¡Œsqlè¯­å¥
+			int r = st.executeUpdate("insert into category (cname) values ('æµ‹è¯•')");
+			//4.æ‰“å°ç»“æœ
 			System.out.println(r);
 			
 			
@@ -66,7 +66,7 @@ public class CRUDDemo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
-			//5.ÊÍ·Å×ÊÔ´
+			//5.é‡Šæ”¾èµ„æº
 			JdbcUtils.closeResource(conn, st, rs);
 		}
 		
@@ -75,7 +75,7 @@ public class CRUDDemo {
 	
 	/**
 	 * function: demo3
-	 * Description:ĞŞ¸Ä²Ù×÷
+	 * Description:ä¿®æ”¹æ“ä½œ
 	 * return:void
 	 */
 	@Test
@@ -85,13 +85,13 @@ public class CRUDDemo {
 		ResultSet rs =null;
 		
 		try {
-			//1.»ñµÃÁ¬½Ó
+			//1.è·å¾—è¿æ¥
 			conn = JdbcUtils.getConnection();
-			//2.»ñµÃÓï¾äÖ´ĞĞÕß
+			//2.è·å¾—è¯­å¥æ‰§è¡Œè€…
 			st = conn.createStatement();
-			//3.Ö´ĞĞsqlÓï¾ä
-			int r = st.executeUpdate("update category set cname = '²âÊÔ2' where cid = 4");
-			//4.´òÓ¡½á¹û
+			//3.æ‰§è¡Œsqlè¯­å¥
+			int r = st.executeUpdate("update category set cname = 'æµ‹è¯•2' where cid = 4");
+			//4.æ‰“å°ç»“æœ
 			System.out.println(r);
 			
 			
@@ -100,7 +100,7 @@ public class CRUDDemo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
-			//5.ÊÍ·Å×ÊÔ´
+			//5.é‡Šæ”¾èµ„æº
 			JdbcUtils.closeResource(conn, st, rs);
 		}
 		
@@ -109,7 +109,7 @@ public class CRUDDemo {
 	
 	/**
 	 * function: demo4
-	 * Description:É¾³ı²Ù×÷
+	 * Description:åˆ é™¤æ“ä½œ
 	 * return:void
 	 */
 	@Test
@@ -119,13 +119,13 @@ public class CRUDDemo {
 		ResultSet rs =null;
 		
 		try {
-			//1.»ñµÃÁ¬½Ó
+			//1.è·å¾—è¿æ¥
 			conn = JdbcUtils.getConnection();
-			//2.»ñµÃÓï¾äÖ´ĞĞÕß
+			//2.è·å¾—è¯­å¥æ‰§è¡Œè€…
 			st = conn.createStatement();
-			//3.Ö´ĞĞsqlÓï¾ä
+			//3.æ‰§è¡Œsqlè¯­å¥
 			int r = st.executeUpdate("delete from category where cid in(5,6)");
-			//4.´òÓ¡½á¹û
+			//4.æ‰“å°ç»“æœ
 			System.out.println(r);
 			
 			
@@ -134,7 +134,7 @@ public class CRUDDemo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
-			//5.ÊÍ·Å×ÊÔ´
+			//5.é‡Šæ”¾èµ„æº
 			JdbcUtils.closeResource(conn, st, rs);
 		}
 		
@@ -143,7 +143,7 @@ public class CRUDDemo {
 	
 	/**
 	 * function: demo5
-	 * Description:¸ù¾İid²éÑ¯ÏêÇé 	
+	 * Description:æ ¹æ®idæŸ¥è¯¢è¯¦æƒ… 	
 	 * return:void
 	 */
 	@Test
@@ -153,26 +153,26 @@ public class CRUDDemo {
 		ResultSet rs =null;
 		
 		try {
-			//1.»ñµÃÁ¬½Ó
+			//1.è·å¾—è¿æ¥
 			conn = JdbcUtils.getConnection();
-			//2.»ñµÃÓï¾äÖ´ĞĞÕß
+			//2.è·å¾—è¯­å¥æ‰§è¡Œè€…
 			st = conn.createStatement();
-			//3.Ö´ĞĞsqlÓï¾ä
+			//3.æ‰§è¡Œsqlè¯­å¥
 			rs = st.executeQuery("select * from category where cid =2");
-			//4.´¦Àí½á¹û
+			//4.å¤„ç†ç»“æœ
 			if(rs.next()){
 				int cid = rs.getInt("cid");
 				String cname = rs.getString("cname");
 				System.out.println(cid+"@"+cname);
 			}else{
-				System.out.println("Ã»ÓĞ²éµ½Êı¾İ£¡");
+				System.out.println("æ²¡æœ‰æŸ¥åˆ°æ•°æ®ï¼");
 			}		
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
-			//5.ÊÍ·Å×ÊÔ´
+			//5.é‡Šæ”¾èµ„æº
 			JdbcUtils.closeResource(conn, st, rs);
 		}
 		
