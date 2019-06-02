@@ -21,7 +21,7 @@ import java.sql.Statement;
 */
 public class JdbcUtils {
 	private static String driver = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://localhost:3306/mydb";
+	private static String url = "jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=UTF-8";
 	private static String user = "huangtc";
 	private static String password = "huangTC@123";
 	//Class.forName必须在放在静态代码块或者方法中
