@@ -178,4 +178,43 @@ public class CRUDDemo {
 		
 		
 	}
+	
+	/**
+	 * function: demo6
+	 * Description:查询所有数据
+	 * return:void
+	 */
+	@Test
+	public void demo6(){
+		Connection conn = null;
+		Statement st = null;
+		ResultSet rs =null;
+		
+		try {
+			//1.获得连接
+			conn = JdbcUtils.getConnection();
+			//2.获得语句执行者
+			st = conn.createStatement();
+			//3.执行sql语句
+			rs = st.executeQuery("select * from category");
+			//4.处理结果
+			//注意：
+			//while(rs.next) 	//就是 将rs全部进行读取
+			//if(rs.next) 		//rs进行读取一次 判断是否有数据
+			while(rs.next()){
+				String cid = rs.getString("cid");
+				String cname = rs.getString("cname");
+				System.out.println(cid+"@"+cname);
+			}		
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			//5.释放资源
+			JdbcUtils.closeResource(conn, st, rs);
+		}
+		
+		
+	}
 }
