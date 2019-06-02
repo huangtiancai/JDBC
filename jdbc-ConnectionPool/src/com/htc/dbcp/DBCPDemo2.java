@@ -24,7 +24,7 @@ public class DBCPDemo2 {
 	public void demo1() throws Exception{
 		//1.获得连接池
 		//1.1加载properties文件，获得Properties对象
-		InputStream is = DBCPDemo2.class.getClassLoader().getResourceAsStream("dbcp-config.properties");
+		InputStream is = DBCPDemo2.class.getClassLoader().getResourceAsStream("dbcp.properties");
 		Properties props = new Properties();
 		props.load(is);
 		

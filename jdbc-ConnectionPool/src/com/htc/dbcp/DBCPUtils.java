@@ -24,7 +24,7 @@ public class DBCPUtils {
 	static{
 		try {
 			//1)加载properties文件，获得Properties对象
-			InputStream is = DBCPDemo2.class.getClassLoader().getResourceAsStream("dbcp-config.properties");
+			InputStream is = DBCPDemo2.class.getClassLoader().getResourceAsStream("dbcp.properties");
 			Properties props = new Properties();
 			props.load(is);
 			//2)通过工厂，创建连接池
