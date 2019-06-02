@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.htc.sqlinjection;
 
 import java.sql.Connection;
