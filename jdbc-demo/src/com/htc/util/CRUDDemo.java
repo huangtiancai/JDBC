@@ -90,7 +90,7 @@ public class CRUDDemo {
 			//2.获得语句执行者
 			st = conn.createStatement();
 			//3.执行sql语句
-			int r = st.executeUpdate("update category set cname = '测试2' where cid = 4");
+			int r = st.executeUpdate("update category set cname = '测试1' where cid = 4");
 			//4.打印结果
 			System.out.println(r);
 			
@@ -124,7 +124,7 @@ public class CRUDDemo {
 			//2.获得语句执行者
 			st = conn.createStatement();
 			//3.执行sql语句
-			int r = st.executeUpdate("delete from category where cid in(5,6)");
+			int r = st.executeUpdate("delete from category where cid in(4)");
 			//4.打印结果
 			System.out.println(r);
 			
