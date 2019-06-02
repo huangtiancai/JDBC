@@ -21,7 +21,6 @@ public class TestDBCP {
 			Connection conn = DBCPUtils.getConnection();
 			System.out.println(conn);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
