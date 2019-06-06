@@ -21,7 +21,7 @@ public class DruidDemo1 {
 	public void demo1() throws SQLException{
 		//1.获得连接池
 		DruidDataSource dataSource = new DruidDataSource();
-		//2.基本参数
+		//2.基本参数（注意：Druid的基本参数和DBCP的基本参数相同）
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/mydb");
 		dataSource.setUsername("huangtc");
