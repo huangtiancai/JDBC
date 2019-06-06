@@ -4,10 +4,13 @@
 package com.htc.DBUtils;
 
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.ArrayHandler;
+import org.apache.commons.dbutils.handlers.ArrayListHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapHandler;
@@ -189,8 +192,7 @@ public class DBUtilsQuery {
 	 */
 	@Test
 	public void MapListHandlerQuery() throws SQLException{
-		//MapHandler:将查询到的一条记录，封装到Map中,map.key=字段名,map.value=值
-		//注意与BeanHandler查询一行数据的区别
+		//MapListHandler:查询所有数据，将每一条记录封装到Map中，然后将Map添加到List中，最后返回List
 		
 		//1.核心类
 		QueryRunner queryRunner = new QueryRunner(C3P0Utils.getDataSource());
@@ -249,8 +251,29 @@ public class DBUtilsQuery {
 	 */
 	@Test
 	public void ArrayHandlerQuery() throws SQLException{
-		//MapHandler:将查询到的一条记录，封装到Map中,map.key=字段名,map.value=值
-		//注意与BeanHandler查询一行数据的区别
+		//ArrayHandler:查询一条记录，将数据封装到数组中
+		
+		//1.核心类
+		QueryRunner queryRunner = new QueryRunner(C3P0Utils.getDataSource());
+		//2.sql语句
+		String sql = "select * from product where pid = ?";
+		//3.实际参数
+		Object[] params = {6};
+		//4.查询并封装
+		Object[] arr = queryRunner.query(sql, new ArrayHandler(), params);
+		System.out.println(arr);
+		System.out.println(Arrays.toString(arr));//[6, OPPO, 3400.0, c002]
+	}	
+	
+	/**
+	 * function: ArrayListHandlerQuery
+	 * Description: ArrayListHandler处理方式-将数据表中的每一行数据,存储到一个对象数组Object[]中
+	 * 									       而数据表中会有多行数据,产生多个对象数组, 存储到List集合中
+	 * return:void
+	 */
+	@Test
+	public void ArrayListHandlerQuery() throws SQLException{
+		// ArrayListHandler:查询所有，将每一行记录封装到数组中，然后添加到List，最后返回list
 		
 		//1.核心类
 		QueryRunner queryRunner = new QueryRunner(C3P0Utils.getDataSource());
@@ -259,10 +282,42 @@ public class DBUtilsQuery {
 		//3.实际参数
 		Object[] params = {};
 		//4.查询并封装
-		//Map<String, Object> map = queryRunner.query(sql, new MapHandler(), params);
-		List<Map<String, Object>> list = queryRunner.query(sql, new MapListHandler());
+		List<Object[]> list = queryRunner.query(sql, new ArrayListHandler());
 		
 		System.out.println(list);
-	}	
+		
+//		[
+//		  [Ljava.lang.Object;@c677a7, 
+//		  [Ljava.lang.Object;@1d9a9a7, 
+//		  [Ljava.lang.Object;@1114c4f, 
+//		  [Ljava.lang.Object;@a8f4d4, 
+//		  [Ljava.lang.Object;@61c207, 
+//		  [Ljava.lang.Object;@97eb1, 
+//		  [Ljava.lang.Object;@15c9b9c, 
+//		  [Ljava.lang.Object;@ec5af6, 
+//		  [Ljava.lang.Object;@147d62e, 
+//		  [Ljava.lang.Object;@13e94d3
+//		]
+		
+		for(Object[] arr:list){
+			System.out.println(Arrays.toString(arr));
+		}
+		
+//		[1, IBM, 5500.0, c001]
+//		[2, 长城, 3200.0, c001]
+//		[3, 惠普, 5000.0, c001]
+//		[4, 华为, 3800.0, c002]
+//		[5, 小米, 2000.0, c002]
+//		[6, OPPO, 3400.0, c002]
+//		[7, NOKIA, 2000.0, c002]
+//		[8, 佰草集, 800.0, c003]
+//		[9, 玉兰油, 200.0, c003]
+//		[10, 大宝, 5.0, c003]
+	}
+	
+	
+	
+	
+	
 	
 }
