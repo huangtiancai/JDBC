@@ -16,6 +16,8 @@ import com.htc.bean.Person;
 * @date 2019年6月10日下午6:28:08 
 */
 public class JsonService {
+	//JSON解析实例——使用Json-lib
+	//https://www.cnblogs.com/mengdd/p/3141402.html
 
 	public JsonService() {
 		// TODO Auto-generated constructor stub
