@@ -32,6 +32,14 @@ public class JsonService {
 //	每个Person对象都可以用3个属性描述他(属性:属性值  key value)
 //		{"属性1":"属性值","属性1":"属性值","属性1":"属性值"}
 	
+//	数据在名称/值对中	  			"属性1":"属性值"
+//	数据由逗号分隔	  			"属性1":"属性值","属性1":"属性值"
+//	花括号保存对象(一个对象)		{"属性1":"属性值","属性1":"属性值","属性1":"属性值"}
+//	方括号保存数组(多个对象)	  	[{"address":"Beijing","id":1,"name":"tom"},
+//	 						 {"address":"shanghai","id":2,"name":"jack"},
+//	 						 {"address":"guangzhou","id":3,"name":"john"}
+//							]
+	
 	public Person getPerson(){
 		Person person = new Person(001, "tom", "beijing");
 		return person;
