@@ -4,10 +4,12 @@
 package com.htc.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.htc.bean.Person;
+import com.htc.jsonlib.Jsonlib;
 
 /**  
 * @ClassName JsonService
@@ -23,12 +25,23 @@ public class JsonService {
 		// TODO Auto-generated constructor stub
 	}
 	
+//	id    name   address
+//	001, "tom",  "Beijing"    ---第一个Person对象（一个对象具有3个属性id,name,address,属性值分别为：001,"tom","Beijing"）
+//	002, "jack", "shanghai"   ---第二个Person对象
+//	003, "john", "guangzhou"  ---第三个Person对象
+//	每个Person对象都可以用3个属性描述他(属性:属性值  key value)
+//		{"属性1":"属性值","属性1":"属性值","属性1":"属性值"}
+	
 	public Person getPerson(){
 		Person person = new Person(001, "tom", "beijing");
 		return person;
 	}
 	
-//	{"address":"beijing","id":1,"name":"tom"}
+//	msg = Jsonlib.createJsonString("一个Person对象", service.getPerson());
+//	System.out.println(msg);
+//	{"一个Person对象":
+//		{"address":"beijing","id":1,"name":"tom"}
+//	}
 	
 	public List<Person> getPersonList(){
 		List<Person> personList = new ArrayList<Person>();
@@ -44,10 +57,16 @@ public class JsonService {
 		return personList;	
 	}
 	
-//	[{"address":"Beijing","id":1,"name":"tom"},
-//	 {"address":"shanghai","id":2,"name":"jack"},
-//	 {"address":"guangzhou","id":3,"name":"john"}
-//	]
+//	msg = Jsonlib.createJsonString("Persons", service.getPersonList());
+//	System.out.println(msg);
+	
+//	一个List，里面有若干Person对象
+//	{"Persons":
+//		[{"address":"Beijing","id":1,"name":"tom"},
+//		 {"address":"shanghai","id":2,"name":"jack"},
+//		 {"address":"guangzhou","id":3,"name":"john"}
+//		]
+//	}
 	
 	
 	public List<String> getStringList(){
@@ -62,20 +81,45 @@ public class JsonService {
 		return stringList;
 	}
 	
-//	["南京","杭州","苏州","无锡","上海"]
+//	一个List，里面有若干String对象
+//	msg = Jsonlib.createJsonString("StringList", service.getStringList());
+//	System.out.println(msg);
+	
+//	{"StringList":
+//		["南京","杭州","苏州","无锡","上海"]
+//	}
 	
 	public List<Map<String, Object>> getMapList(){
 		List<Map<String, Object>> mapList = new ArrayList<Map<String,Object> >();
- 		
+ 		for(int i = 0;i<3;i++){
+ 			Map<String, Object> map = new HashMap<String,Object>();
+ 			
+ 			//map.put(String key, Object value);//key value
+ 			map.put("id", i);
+ 			map.put("name", "Name_"+i);
+ 			map.put("address", "Address_"+i);
+ 			
+ 			mapList.add(map);
+ 		}
 		
-		return null;
+		return mapList;
 	}
 	
-//	[{"id":0,"address":"Address_0","name":"Name_0"},
-//	 {"id":1,"address":"Address_1","name":"Name_1"},
-//	 {"id":2,"address":"Address_2","name":"Name_2"}]
+//	一个List，里面有若干Map对象，每个Map对象中存储了若干个键值对
+//	msg = Jsonlib.createJsonString("MapList", service.getMapList());
+//	System.out.println(msg);
+
+//	{"MapList":
+//		[{"id":0,"address":"Address_0","name":"Name_0"},     i = 0  一个for循环里添加三个键值对
+//		 {"id":1,"address":"Address_1","name":"Name_1"},	 i = 1
+//		 {"id":2,"address":"Address_2","name":"Name_2"}		 i = 2
+//		]
+//	}
 	
-	
+//	id   name       address
+//	0,   "Name_0",  "Address_0"    ---第一个Person对象
+//	1,   "Name_1",  "Address_1"    ---第二个Person对象
+//	2,   "Name_2",  "Address_2"
 	
 	
 	

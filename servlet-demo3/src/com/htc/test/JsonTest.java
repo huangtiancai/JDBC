@@ -3,7 +3,6 @@
  */
 package com.htc.test;
 
-import com.htc.bean.Person;
 import com.htc.jsonlib.Jsonlib;
 import com.htc.service.JsonService;
 
@@ -15,17 +14,23 @@ import com.htc.service.JsonService;
 */
 public class JsonTest {
 	public static void main(String[] args) {
+
+		
 		String msg = "";
 		JsonService service = new JsonService();
 		//Person person = service.getPerson();
 		
+		//一个Person对象
 		msg = Jsonlib.createJsonString("一个Person对象", service.getPerson());
 		System.out.println(msg);
-		
-		msg = Jsonlib.createJsonString("若干个Person对象", service.getPersonList());
+		//一个List，里面有若干Person对象
+		msg = Jsonlib.createJsonString("Persons", service.getPersonList());
 		System.out.println(msg);
-		
-		msg = Jsonlib.createJsonString("若干String对象", service.getStringList());
+		//一个List，里面有若干String对象
+		msg = Jsonlib.createJsonString("StringList", service.getStringList());
+		System.out.println(msg);
+		//一个List，里面有若干Map对象，每个Map对象中存储了若干个键值对
+		msg = Jsonlib.createJsonString("MapList", service.getMapList());
 		System.out.println(msg);
 	}
 }
