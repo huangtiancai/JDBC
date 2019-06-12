@@ -8,3 +8,4 @@ JDBC（Java Data Base Connectivity-java数据库连接）
   MySQl驱动包提供了实现类：com.mysql.jdbc.Driver（驱动类）
 
 4.JDBC需要连接驱动：mysql的驱动mysql-connector-java-5.1.37-bin.jar
+//
