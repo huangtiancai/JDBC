@@ -41,6 +41,10 @@ public class C3P0Utils {
 	}
 	
 	
+	public static void closeDataSource(){
+		dataSource.close();
+		System.out.println("关闭数据源！");
+	}
 	
 	
 	

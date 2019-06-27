@@ -46,8 +46,7 @@ public class C3P0Demo1 {
 			dataSource.setAcquireIncrement(2);
 			//4.获得连接
 			Connection conn = dataSource.getConnection();
-			System.out.println("获得的连接："+conn);
-			
+			System.out.println("获得的连接："+conn);			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
