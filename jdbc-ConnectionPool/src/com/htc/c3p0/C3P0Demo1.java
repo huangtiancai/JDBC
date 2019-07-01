@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 /**  
-* @ClassName C3P0Demo1
+* @ClassName C3P0Demo12
 * @Description:C3P0的基本配置
 * @author htc  
 * @date 2019年6月2日 下午9:00:32
