@@ -5,10 +5,13 @@ package com.htc.test;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import com.htc.bean.Owners;
 import com.htc.dao.OwnersDao;
+import com.htc.util.JdbcUtils;
 import com.htc.util.JdbcUtils2;
 
 /**  
@@ -19,6 +22,24 @@ import com.htc.util.JdbcUtils2;
 */
 
 public class Test {
+	Connection conn = null;
+	Statement st = null;
+	ResultSet rs =null;
+	
+	@org.junit.Test
+	public void testJDBCMySQL(){
+		try {
+			Connection conn = JdbcUtils.getConnection();
+			System.out.println(conn);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JdbcUtils.closeResource(conn, st, rs);
+		}
+		
+	}
+	
 	@org.junit.Test
 	public void testJDBCOracle(){
 		try {
@@ -27,6 +48,8 @@ public class Test {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			JdbcUtils2.closeResource(conn, st, rs);
 		}
 	}
 	
