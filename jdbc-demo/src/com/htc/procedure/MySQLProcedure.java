@@ -46,18 +46,64 @@ public class MySQLProcedure {
 	ResultSet rs =null;
 	
 	/**
+	 * function: avgScore
+	 * Description:根据学生编号查询姓名
+	 * return:void
+	 */
+	@Test
+	public void findScoreById(){
+
+		try {
+			//1.获取连接对象
+			conn = JdbcUtils.getConnection();
+			System.out.println("打开连接池");
+			//2.获取操作存储过程的对象                                               
+			CallableStatement cs = conn.prepareCall("{call Proc_Student(?,?)}");//不管是输入还是输出，都可以用 ? 来代替这个参数
+			/**
+			 * 设置输入参数：第一个参数是位置下标
+			 * 设置输出参数：第二个参数是存储过程中，那个输出参数的类型
+			 * 		此方法就是注册输出参数的类型:因为是注册输出参数的是mysql中的操作，注册的输出参数也必须是mysql中的数据类型
+			 * 通过 java.sql.Types.XXX：就可以获得其中的sql的类型
+			 */
+			//3.注入输入参数
+			cs.setString(1, "101");
+			//4.注册输出参数
+			cs.registerOutParameter(2, java.sql.Types.VARCHAR); //out参数是varchar
+			
+			//发送参数：结果并不在resultSet中
+			//这里并不需要rs结果集：因为我们是带返回参数的存储过程，并没有查询结果集
+			//5.执行语句
+			cs.execute();
+			
+			//结果在输出参数中，我们应该在"输出参数"中查看结果
+			//通过getXXX方法；但是这里的getXXX方法，和resultSet中的getXXX方法不同
+			//这里的getXXX方法是callableStatement提供的，专门针对存储过程的out参数的, 而resultSet中的getXXX方法是获取列的值的
+			//6.获取结果
+			String sname =  cs.getString(2);
+			System.out.println(sname);
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JdbcUtils.closeResource(conn, st, rs);
+			System.out.println("关闭连接池");
+		}	
+	}
+	
+	/**
 	 * function: findAll
 	 * Description:通过存储过程查询数据
 	 * return:void
 	 */
 	@Test
-	public void findAll(){
+	public void findAllProduct(){
 
 		try {
 			conn = JdbcUtils.getConnection();
 			System.out.println("打开连接池");
 			//调用存储过程
-			CallableStatement cs = conn.prepareCall("{CALL findAllProduct()}");//存储过程（）可有可无
+			CallableStatement cs = conn.prepareCall("{CALL findAllProduct()}");
 			//执行查询操作，并获取结果集
 			ResultSet rs = cs.executeQuery();
 			while(rs.next()){
@@ -76,59 +122,19 @@ public class MySQLProcedure {
 		}	
 	}
 	
-	
-	
-	/**
-	 *	DROP PROCEDURE IF EXISTS Proc_Student;
-		CREATE PROCEDURE Proc_Student(IN p_in INT)
-		BEGIN
-			SELECT s_no,s_name FROM student_procedure WHERE s_no = p_in;
-		END
-		#调用
-		SET @p_in = '003';
-		CALL Proc_Student(@p_in);
-	 */
-	/**
-	 * function: avgScore
-	 * Description:根据学生编号查询
-	 * return:void
-	 */
 	@Test
-	public void findScoreById(){
+	public void findAllProductById(){
 
 		try {
 			conn = JdbcUtils.getConnection();
 			System.out.println("打开连接池");
+
+			CallableStatement cs = conn.prepareCall("{CALL findAllProductById(?,?)}");
+			cs.setInt(1, 5);
+			cs.registerOutParameter(2, java.sql.Types.VARCHAR);;
+			cs.execute();
+			System.out.println(cs.getString(2));
 			
-			String sql = "Proc_Student(?,?)";
-			//调用存储过程
-			CallableStatement cs = conn.prepareCall(sql);//不管是输入还是输出，都可以用 ? 来代替这个参数
-			/**
-			 * 1.设置输入参数：第一个参数是位置下标
-			 * 2.设置输出参数：第二个参数是存储过程中，那个输出参数的类型
-			 * 		此方法就是注册输出参数的类型:因为是注册输出参数的是mysql中的操作，注册的输出参数也必须是mysql中的数据类型
-			 * 通过 java.sql.Types.XXX：就可以获得其中的sql的类型
-			 */
-			cs.setString(1, "101");
-			cs.registerOutParameter(2, java.sql.Types.VARCHAR); //out参数是varchar
-			
-			//发送参数：结果并不在resultSet中
-			//这里并不需要rs结果集：因为我们是带返回参数的存储过程，并没有查询结果集
-			cs.executeQuery();
-			
-			//结果在输出参数中，我们应该在"输出参数"中查看结果
-			//通过getXXX方法；但是这里的getXXX方法，和resultSet中的getXXX方法不同
-			//这里的getXXX方法是callableStatement提供的，专门针对存储过程的out参数的, 而resultSet中的getXXX方法是获取列的值的
-			String sname =  cs.getString(2);
-			System.out.println(sname);
-			
-			
-			//执行查询操作，并获取结果集
-//			ResultSet rs = cs.executeQuery();
-//			while(rs.next()){
-//				System.out.println("平均成绩："+rs);
-//			}
-//			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -137,5 +143,7 @@ public class MySQLProcedure {
 			System.out.println("关闭连接池");
 		}	
 	}
+	
+	
 	
 }
