@@ -15,7 +15,7 @@ public class Product {
 	private Double price;
 	private String category_id;
 
-	//alt+/   生成无参构造器
+	//alt+/   生成无参构造器  /
 	public Product() {
 		// 
 	}
